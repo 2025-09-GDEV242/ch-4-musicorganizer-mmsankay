@@ -4,10 +4,36 @@ import java.util.ArrayList;
  * A class to hold details of audio tracks.
  * Individual tracks may be played.
  * 
- * @author David J. Barnes and Michael Kölling
- * @version 2016.02.29
+ * @author Marian M Sankay
+ * @version 2025.06.25
  */
-public class MusicOrganizer
+import java.io.File;
+import java.util.Random;
+
+public class RandomTrackPlayer {
+    
+    public static void main(string[] args) {
+        
+        string audioDirectory = "path/to/your/audio/file";
+
+        File[] tracks = AudioFileLoader.getAudioFiles(audioDirectory);
+
+        if (tracks.length > 0) {
+
+            Random random = new Random();
+            int randomIndex = random.nextInt(tracks.length);
+            File randomTrack = tracks[randomIndex];
+
+            system.out.println("Now playing: " + randomTrack.getName());
+
+            AudioPlayer.playsound(randomTrack);
+
+        }
+
+    }
+
+}
+
 {
     // An ArrayList for storing music tracks.
     private ArrayList<Track> tracks;
